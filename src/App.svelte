@@ -101,43 +101,6 @@
     console.log($catalog_title);
   }
 
-  // async function getProductSetsData(set_type_id, product_sets_page_num) {
-  //   // let product_sets_url_params = new URLSearchParams({
-  //   //   product_sets_page_num: product_sets_page_num,
-  //   // });
-
-  //   if ($is_index_page === false) {
-  //     product_sets_url_params.set("set_type_id", set_type_id);
-  //   }
-
-  //   let product_sets_url =
-  //     "/products/product_sets/product_sets?" +
-  //     product_sets_url_params.toString();
-
-  //   // let product_sets_url = $is_index_page
-  //   //   ? "/products/product_sets/product_sets"
-  //   //   : "/products/product_sets/product_sets?" +
-  //   //     new URLSearchParams({
-  //   //       set_type_id: set_type_id,
-  //   //       product_sets_page_num: product_sets_page_num,
-  //   //     }).toString();
-
-  //   const resp_product_sets = await fetch(product_sets_url);
-
-  //   if (!resp_product_sets.ok) {
-  //     throw new Error(`Error: ${resp_product_sets.status}`);
-  //   }
-
-  //   if (resp_product_sets.status == 200) {
-  //     const data = await resp_product_sets.json();
-
-  //     $product_sets_data.push(data.results);
-  //     show_load_more_button = data.next !== null;
-
-  //     console.log($product_sets_data);
-  //   }
-  // }
-
   async function getProductSetsData(set_type_id) {
     let product_sets_url = $is_index_page
       ? "/products/product_sets/product_sets"
@@ -155,7 +118,6 @@
     if (resp_product_sets.status == 200) {
       const data = await resp_product_sets.json();
       product_sets.set(data);
-      console.log(data);
       console.log($product_sets);
     }
   }
